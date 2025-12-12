@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalerieHealth 精選系列 | 時尚簡約保健</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FCFBF8',
+                            light: '#F2F0EB',
+                            dark: '#1A1A1A',
+                            accent: '#B39A74',
+                            muted: '#595959',
+                            card: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; color: #1A1A1A; background-color: #FCFBF8; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Cormorant Garamond', serif; }
+        
+        .product-card .product-img-container img { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover .product-img-container img { transform: scale(1.05); }
+        .product-card { transition: all 0.5s ease; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
+
+        .modal-open { overflow: hidden; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-brand-bg/95 backdrop-blur-md border-b border-stone-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-wider text-brand-dark">CALERIE<span class="text-brand-accent">.LIFE</span></a>
+            <div class="hidden md:flex space-x-10 text-sm font-medium tracking-widest text-brand-muted">
+                <a href="#health" class="hover:text-brand-dark transition-colors">健康調理</a>
+                <a href="#beauty" class="hover:text-brand-dark transition-colors">美麗維持</a>
+                <a href="#slimming" class="hover:text-brand-dark transition-colors">纖纖瘦身</a>
+                <a href="#contact" class="hover:text-brand-dark transition-colors">聯絡諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-10 md:pt-48 md:pb-20 px-6 text-center overflow-hidden bg-brand-bg">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <span class="text-brand-accent font-semibold tracking-[0.3em] uppercase text-xs mb-4 md:mb-6 block">Premium Collection</span>
+            <h1 class="text-4xl md:text-7xl font-serif font-medium text-brand-dark mb-6 md:mb-8 leading-tight">
+                純粹・科學・新生
+            </h1>
+            <p class="text-brand-muted text-base md:text-xl font-light max-w-xl mx-auto mb-8 md:mb-12 leading-relaxed">
+                以細胞科學為基石，重新定義您的健康儀式。<br>感受源自內在的輕盈與光采。
+            </p>
+        </div>
+        <div class="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] bg-brand-light rounded-full blur-3xl opacity-60"></div>
+    </header>
+
+    <section id="health" class="pt-4 pb-20 px-6 max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl font-serif font-medium mb-3 text-brand-dark">Health Regulation</h2>
+            <p class="text-brand-accent text-sm tracking-[0.2em] font-medium">健康調理系列</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div onclick="openModal('alpha')" class="product-card group cursor-pointer bg-brand-card p-6 md:p-8 rounded-xl shadow-soft border border-stone-50/50">
+                <div class="product-img-container aspect-[4/5] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-light">
+                    <img src="美青片.jpeg" alt="Alpha Hope" class="w-full h-full object-cover object-center">
+                </div>
+                <h3 class="text-lg md:text-xl font-serif font-semibold text-brand-dark mb-2">Alpha Hope 氫氣片</h3>
+                <p class="text-sm text-brand-muted mb-4 font-light">PQQ 免疫之王，啟動細胞排毒</p>
+                <span class="text-[10px] tracking-[0.2em] text-brand-accent uppercase font-semibold">View Details</span>
+            </div>
+
+            <div onclick="openModal('evity')" class="product-card group cursor-pointer bg-brand-card p-6 md:p-8 rounded-xl shadow-soft border border-stone-50/50">
+                <div class="product-img-container aspect-[4/5] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-light">
+                    <img src="活力素.webp" alt="Evity" class="w-full h-full object-cover object-center">
+                </div>
+                <h3 class="text-lg md:text-xl font-serif font-semibold text-brand-dark mb-2">Evity 活力素錠</h3>
+                <p class="text-sm text-brand-muted mb-4 font-light">AKG 逆齡因子，修復 DNA</p>
+                <span class="text-[10px] tracking-[0.2em] text-brand-accent uppercase font-semibold">View Details</span>
+            </div>
+
+            <div onclick="openModal('aqua')" class="product-card group cursor-pointer bg-brand-card p-6 md:p-8 rounded-xl shadow-soft border border-stone-50/50">
+                <div class="product-img-container aspect-[4/5] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-light">
+                    <img src="益生菌.jpeg" alt="Aqua Probiotics" class="w-full h-full object-cover object-center">
+                </div>
+                <h3 class="text-lg md:text-xl font-serif font-semibold text-brand-dark mb-2">Aqua Probiotics 藻藍益生菌</h3>
+                <p class="text-sm text-brand-muted mb-4 font-light">SOD + 海洋礦物質，腸道淨化</p>
+                <span class="text-[10px] tracking-[0.2em] text-brand-accent uppercase font-semibold">View Details</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="beauty" class="py-20 md:py-28 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="text-3xl md:text-4xl font-serif font-medium mb-3 text-brand-dark">Beauty Maintenance</h2>
+                <p class="text-brand-accent text-sm tracking-[0.2em] font-medium">美麗維持系列</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-stretch">
+                <div onclick="openModal('glow')" class="product-card group cursor-pointer bg-brand-card p-8 md:p-10 rounded-xl shadow-soft border border-stone-50/50 flex flex-col items-center text-center h-full">
+                    <div class="product-img-container w-full aspect-[4/5] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-bg shadow-inner">
+                        <img src="靚素.jpg" alt="Glow" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-semibold text-brand-dark mb-3">Glow 靚素</h3>
+                    <p class="text-brand-muted text-sm md:text-base mb-6 max-w-xs font-light leading-relaxed">燕窩酸 x 穀胱甘肽，潤養細胞煥發光彩。</p>
+                    <div class="mt-auto">
+                        <span class="text-[10px] tracking-[0.2em] text-brand-accent border-b-2 border-brand-accent/20 pb-2 group-hover:border-brand-accent transition-all font-semibold">DISCOVER</span>
+                    </div>
+                </div>
+
+                <div onclick="openModal('rejuve')" class="product-card group cursor-pointer bg-brand-card p-8 md:p-10 rounded-xl shadow-soft border border-stone-50/50 flex flex-col items-center text-center h-full">
+                    <div class="product-img-container w-full aspect-[4/5] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-bg shadow-inner">
+                        <img src="紫妍露.jpeg" alt="Rejuve Medley" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-semibold text-brand-dark mb-3">Rejuve Medley 紫妍露</h3>
+                    <p class="text-brand-muted text-sm md:text-base mb-6 max-w-xs font-light leading-relaxed">第二代白藜蘆醇，全能抗氧化的液體黃金。</p>
+                    <div class="mt-auto">
+                        <span class="text-[10px] tracking-[0.2em] text-brand-accent border-b-2 border-brand-accent/20 pb-2 group-hover:border-brand-accent transition-all font-semibold">DISCOVER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slimming" class="py-20 md:py-28 px-6 max-w-6xl mx-auto bg-brand-bg">
+        <div class="text-center mb-12 md:mb-20">
+            <h2 class="text-3xl md:text-4xl font-serif font-medium mb-3 text-brand-dark">Slimming & Energy</h2>
+            <p class="text-brand-accent text-sm tracking-[0.2em] font-medium">纖纖瘦身系列</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div onclick="openModal('terravie')" class="product-card group cursor-pointer bg-brand-card p-6 md:p-8 rounded-xl shadow-soft border border-stone-50/50">
+                 <div class="product-img-container aspect-[3/2] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-light">
+                    <img src="纖素.jpg" alt="TerraVie" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="px-2 md:px-4 pb-2 md:pb-4">
+                    <h3 class="text-xl md:text-2xl font-serif font-semibold mb-3 text-brand-dark">TerraVie 纖素</h3>
+                    <p class="text-sm md:text-base text-brand-muted font-light mb-6 leading-relaxed">植物蛋白 + 綠色超級食物，淨體排毒首選。</p>
+                    <span class="text-[10px] tracking-[0.2em] text-brand-accent font-semibold group-hover:text-brand-dark transition-colors">查看詳情 &rarr;</span>
+                </div>
+            </div>
+
+            <div onclick="openModal('soltrio')" class="product-card group cursor-pointer bg-brand-card p-6 md:p-8 rounded-xl shadow-soft border border-stone-50/50">
+                 <div class="product-img-container aspect-[3/2] mb-6 md:mb-8 rounded-lg overflow-hidden relative bg-brand-light">
+                    <img src="纖咖.jpg" alt="SolTrio" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="px-2 md:px-4 pb-2 md:pb-4">
+                    <h3 class="text-xl md:text-2xl font-serif font-semibold mb-3 text-brand-dark">SolTrio 纖咖</h3>
+                    <p class="text-sm md:text-base text-brand-muted font-light mb-6 leading-relaxed">專利成分 x 阿拉比卡咖啡，代謝燃燒無負擔。</p>
+                    <span class="text-[10px] tracking-[0.2em] text-brand-accent font-semibold group-hover:text-brand-dark transition-colors">查看詳情 &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-brand-dark text-white py-16 px-6 font-light">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="mb-10 md:mb-0">
+                <h4 class="text-xl md:text-2xl font-serif font-bold mb-4 md:mb-6 tracking-wider">CALERIE<span class="text-brand-accent">.LIFE</span></h4>
+                <div class="space-y-3 text-sm opacity-80">
+                    <p>專屬諮詢顧問：<span class="text-white font-medium">徐甯恩</span></p>
+                    <p class="flex items-center">
+                        Line ID: <span class="text-white font-medium ml-2">eudora622</span>
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col md:items-end w-full md:w-auto">
+                 <a href="https://line.me/ti/p/~eudora622" target="_blank" class="text-center group relative overflow-hidden mb-8 bg-brand-accent text-brand-dark px-10 py-4 text-sm font-bold tracking-[0.2em] transition-all hover:bg-white hover:text-brand-dark">
+                    <span class="relative z-10">立即諮詢 / 加入會員</span>
+                </a>
+                <p class="text-xs opacity-60 tracking-widest text-center md:text-right">© 2025 CalerieLife. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="productModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-brand-dark/70 transition-opacity backdrop-blur-md" onclick="closeModal()"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto hide-scrollbar">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-brand-bg text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-brand-light">
+                    <button onclick="closeModal()" class="absolute top-4 right-4 text-brand-muted hover:text-brand-dark z-20 transition-colors p-1 bg-white/50 rounded-full">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-brand-light relative h-64 md:h-auto p-6 md:p-10 flex items-center justify-center">
+                            <img id="modal-img" src="" alt="Product" class="w-full h-full object-contain rounded-lg shadow-soft bg-brand-bg p-2 md:p-4">
+                        </div>
+                        
+                        <div class="p-6 md:p-14 flex flex-col justify-center bg-brand-bg">
+                            <h3 id="modal-title" class="text-2xl md:text-4xl font-serif font-semibold text-brand-dark mb-2 md:mb-3"></h3>
+                            <p id="modal-subtitle" class="text-brand-accent text-xs tracking-[0.3em] mb-6 md:mb-8 font-bold uppercase"></p>
+                            
+                            <div class="space-y-4 md:space-y-6 text-base text-brand-dark leading-relaxed font-light">
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1 md:mb-2 text-brand-dark font-serif">核心功效</h4>
+                                    <p id="modal-desc" class="text-brand-muted text-sm"></p>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1 md:mb-2 text-brand-dark font-serif">主要成分</h4>
+                                    <p id="modal-ingredients" class="text-brand-muted text-sm"></p>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1 md:mb-2 text-brand-dark font-serif">食用方式</h4>
+                                    <p id="modal-usage" class="text-brand-muted text-sm"></p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 md:mt-10 pt-6 border-t border-brand-light flex flex-col gap-4">
+                                <div>
+                                    <p class="text-xs text-brand-muted tracking-wider uppercase font-medium">會員專屬禮遇</p>
+                                    <p id="modal-price" class="text-lg md:text-xl font-serif font-semibold text-brand-dark">請登入查看價格</p>
+                                </div>
+                                
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <a id="modal-link" href="#" target="_blank" class="flex-1 flex items-center justify-center gap-2 border border-brand-dark text-brand-dark px-4 py-3 text-xs font-bold tracking-[0.15em] hover:bg-gray-200 transition-colors">
+                                        官方資訊 ↗
+                                    </a>
+                                    <a href="https://line.me/ti/p/~eudora622" target="_blank" class="flex-[2] text-center bg-brand-dark text-white px-4 py-3 text-xs font-bold tracking-[0.2em] hover:bg-brand-accent transition-colors">
+                                        詢問購買
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = {
+            'alpha': {
+                title: "Alpha Hope 氫氣片",
+                subtitle: "Health Regulation",
+                // 修正：.jpeg
+                img: "美青片.jpeg",
+                desc: "被譽為細胞的「發電站」。透過 PQQ 與活性氫氣的協同作用，幫助細胞排毒、修復粒線體，並能穿透血腦屏障，守護大腦與神經系統健康，同時提升運動後的恢復力。",
+                ingredients: "PQQ (吡咯喹啉醌)、鎂 (產氫核心)、微量元素。",
+                usage: "每日 1-2 片，溶於 240ml 水中飲用 (不可直接吞食)。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/alpha-hope"
+            },
+            'evity': {
+                title: "Evity 活力素錠",
+                subtitle: "Health Regulation",
+                // 修正：.webp
+                img: "活力素.webp",
+                desc: "劃時代的抗老配方。以 AKG 與 NR 激活長壽因子並修復 DNA，從根源延緩衰老。同時調節糖脂代謝，增強體力與心血管健康，找回年輕時的生理機能。",
+                ingredients: "AKG (α-酮戊二酸)、NR (煙醯胺核苷)、鹽酸小檗鹼、R-硫辛酸、L-精胺酸。",
+                usage: "每日 2 錠，搭配開水食用。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/evity"
+            },
+            'aqua': {
+                title: "Aqua Probiotics 藻藍益生菌",
+                subtitle: "Health Regulation",
+                // 修正：.jpeg
+                img: "益生菌.jpeg",
+                desc: "腸道的頂級保養品。結合 SOD 抗氧化劑與來自海洋的礦物質，不僅維持腸道菌叢平衡與酸鹼值，更能強化骨骼、幫助消化，並呵護女性私密處健康。",
+                ingredients: "SOD (超氧化物歧化酶)、Aquamin® 海洋礦物質、有機藍藻、300億活性益生菌。",
+                usage: "每日 1-2 包，建議空腹或睡前一小時食用。可加入水或飲料。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/aqua-probiotics"
+            },
+            'glow': {
+                title: "Glow 靚素 (燕窩酸)",
+                subtitle: "Beauty Maintenance",
+                // 確認：.jpg
+                img: "靚素.jpg",
+                desc: "喝的頂級保養。添加珍貴燕窩酸與穀胱甘肽，深層滋潤肌膚、提升彈性與亮白度。獨特添加茶氨酸，幫助放鬆身心，讓美麗在優質睡眠中生成。",
+                ingredients: "燕窩酸 (玻尿酸)、L-穀胱甘肽、L-茶氨酸、SOD、維生素。",
+                usage: "每日 1 包，口腔溶解或配水食用。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/glow"
+            },
+            'rejuve': {
+                title: "Rejuve Medley 紫妍露",
+                subtitle: "Beauty Maintenance",
+                // 修正：.jpeg
+                img: "紫妍露.jpeg",
+                desc: "全能抗氧化的液體黃金。含「第二代白藜蘆醇」紫檀芪，生物利用率極高。強力清除自由基、抗發炎，並保護心血管與大腦認知功能，全面凍齡。",
+                ingredients: "紫檀芪、有機蝦青素、SOD、多種超級莓果精華 (藍莓/紅石榴等)。",
+                usage: "每日 1-3 包，開袋即飲，根據個人需求調整。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/rejuve-medley-drink"
+            },
+            'terravie': {
+                title: "TerraVie 纖素",
+                subtitle: "Slimming & Energy",
+                // 確認：.jpg
+                img: "纖素.jpg",
+                desc: "三管齊下的健康管理：補充優質植物蛋白、攝取綠色超級食物排毒、以及益生菌養護腸胃。特別添加槲皮素，抗炎並促進代謝，是體重管理的最佳輔助。",
+                ingredients: "豌豆蛋白、綠色超級食物 (小麥草/螺旋藻)、槲皮素、消化酵素、益生菌。",
+                usage: "取 1 包加入 240~360ml 冷開水，搖勻後飲用。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/terravie"
+            },
+            'soltrio': {
+                title: "SolTrio 纖咖",
+                subtitle: "Slimming & Energy",
+                // 確認：.jpg
+                img: "纖咖.jpg",
+                desc: "不僅是咖啡，更是代謝加速器。結合專利成分與香醇咖啡，幫助燃燒、抑制食慾，無添加糖分，讓您在享受咖啡香氣的同時輕鬆管理體態。",
+                ingredients: "專利辣椒萃取物、礦物質鉻、紅茶萃取、阿拉比卡咖啡。",
+                usage: "加入約 180ml 的水或牛奶，冷熱皆可。建議早晨或運動前飲用。",
+                price: "會員優惠價",
+                link: "https://www.calerie.com.tw/products/soltrio"
+            }
+        };
+
+        const modal = document.getElementById('productModal');
+        const body = document.body;
+        const modalLink = document.getElementById('modal-link');
+
+        function openModal(productId) {
+            const product = products[productId];
+            if(!product) return;
+            document.getElementById('modal-title').innerText = product.title;
+            document.getElementById('modal-subtitle').innerText = product.subtitle;
+            document.getElementById('modal-img').src = product.img;
+            document.getElementById('modal-desc').innerText = product.desc;
+            document.getElementById('modal-ingredients').innerText = product.ingredients;
+            document.getElementById('modal-usage').innerText = product.usage;
+            document.getElementById('modal-price').innerText = product.price;
+            
+            // 更新官方連結按鈕
+            if(product.link) {
+                modalLink.href = product.link;
+                modalLink.style.display = 'flex'; // 確保按鈕顯示
+            } else {
+                modalLink.style.display = 'none';
+            }
+
+            modal.classList.remove('hidden');
+            body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            body.classList.remove('modal-open');
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") { closeModal(); }
+        });
+    </script>
+</body>
+</html>
